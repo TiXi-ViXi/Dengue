@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('Create/Patient', [App\Http\Controllers\Patient::class, 'CreatePatient'])->name('create.patient');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/hospital', [App\Http\Controllers\HomeController::class, 'index'])->name('hospital_route');
+Route::get('/patient', [App\Http\Controllers\Patient::class, 'PatientIndex'])->name('patient_route');
+Route::get('/donar', [App\Http\Controllers\HomeController::class, 'index'])->name('donar_route');
