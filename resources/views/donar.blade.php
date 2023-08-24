@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="{{asset('css/patient.css')}}">
+<link rel="stylesheet" href="{{asset('css/donar.css')}}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<body class="body">
+<body class = "body">
     <!-- Header -->
     <header></header>
     <!-- Main -->
@@ -9,26 +9,27 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 left-section">
-                    <div class="user-background"> <img class="logoimg" src="image/patient.jpg" alt=""></div>
+                    <div class="user-background"> <img class="background-img"
+                            src="image\donar.jpg" alt=""></div>
                 </div>
-                <div class="col-md-8 rightsection">
+                <div class="col-md-8 right-section">
                     <div class="content mt-10">
-                        <h2 class="form-heading">Patient Information Form</h2>
-                        <form class="login_form" action="{{route('storePatient.class')}}" method= "post">
-                        @csrf
+                        <h2 class="form-heading">Donar Information Form</h2>
+                        <form class="login_form"  action="{{route('storeDonar.class')}}" method= "post">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control item" name ="name" placeholder="Name">
+                                <input type="text" class="form-control item" name="name" placeholder="Name">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control item" name="age" placeholder="Age">
                             </div>
                             <div class="form-group">
-                            <select class="form-control" name="gender">
-            <option selected="true" disabled="disabled">Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="others">Others</option>
-        </select>
+                                <select class="form-control" name="gender">
+                                    <option selected="true" disabled="disabled">Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="others">Other</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="city">
@@ -60,35 +61,22 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control item" name="currentplat"
-                                    placeholder="Current Platelet">
+                                <input type="date" class="form-control item" name="lastdonation">
                             </div>
+                            
                             <div class="form-group">
-                                <input type="text" class="form-control item" name="lowestplat"
-                                    placeholder="Lowest Platelet">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control item" name="admitted_hospital"
-                                    placeholder="Admitted Hospital">
-                            </div>
-                            <div class="form-group">
-                                <label class="rating-query" for="hospitalRating">Rate the Admitted Hospital:</label><br>
-                                <select class="rating" name="rating">
-                                    <option selected="true" disabled="disabled">Hospital Rating</option>
-                                    <option value=0>0</option>
-                                    <option value=1>1</option>
-                                    <option value=2>2</option>
-                                    <option value=3>3</option>
-                                    <option value=4>4</option>
-                                    <option value=5>5</option>
-                                </select>
+                                <select class="form-control" name="availablity">
+                                    <option selected="true" disabled="disabled">Are You Available For Donating Blood?</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    </select>
                             </div>
                             <div class="form-group">
                             <button type="submit" class="btn btn-primary pulse-button">Submit</button>
                                 <input class="btn btn-block" type="reset">
                             </div>
                         </form>
-                        
+                        </form>
                     </div>
                 </div>
             </div>

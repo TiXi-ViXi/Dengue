@@ -21,8 +21,8 @@ class LoginController extends Controller
     // Override the authenticated method
     protected function authenticated(Request $request, $user)
     {
-        if ($user->type === 'donor') {
-            return redirect()->route('donor_route');
+        if ($user->type === 'donar') {
+            return redirect()->route('donar_route');
         } elseif ($user->type === 'patient') {
             return redirect()->route('patient_route');
         }

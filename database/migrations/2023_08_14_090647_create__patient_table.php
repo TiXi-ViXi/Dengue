@@ -14,20 +14,21 @@ return new class extends Migration
         Schema::create('_patient', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
+            $table->integer('Age');
             $table->enum('Gender', ['male', 'female', 'others'])
             ->default('others') // Optional: Set a default value if needed
             ->nullable(false);
-            $table->integer('Age');
+            $table->enum('City',['Dhaka','Khulna','Chittagong','Rajshahi','Barishal','Mymensingh','Sylhet','Rangpur'])
+            ->nullable(false);
             $table->string('Phone_No', 11);
             $table->enum('Blood_Group', ['A+', 'A-','B+', 'B-','AB+', 'AB-','O+', 'O-','None'])
             ->default('None') // Optional: Set a default value if needed
             ->nullable(false);
             $table->integer('Current_Platelet');
             $table->integer('Lowest_Platelet');
-            $table->string('Admited_Hospital');
-            $table->unsignedBigInteger('Hospital_id');
-            $table->decimal('Hospital_rating', 3, 2);
-            $table->string('Password');
+            $table->integer('rating');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

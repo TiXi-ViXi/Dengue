@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('_hospital', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
-            $table->string('City');
-            $table->decimal('Hospital_Rating',3, 2);
-            $table->integer('Total_Seat');
-            $table->string('Password');
+            $table->enum('City',['Dhaka','Khulna','Chittagong','Rajshahi','Barishal','Mymensingh','Sylhet','Rangpur']);
+            $table->integer('Hospital_Rating')->default(0);
+            $table->bigInteger('TotalSeat')->nullable();
+            $table->string('Phone_No', 11);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

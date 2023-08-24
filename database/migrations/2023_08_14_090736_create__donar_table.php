@@ -18,14 +18,16 @@ return new class extends Migration
             $table->enum('Gender', ['male', 'female', 'others'])
             ->default('others') // Optional: Set a default value if needed
             ->nullable(false);
-            $table->string('City');
-            $table->string('Phone');
+            $table->enum('City',['Dhaka','Khulna','Chittagong','Rajshahi','Barishal','Mymensingh','Sylhet','Rangpur'])
+            ->nullable(false);
+            $table->string('Phone_No',11);
             $table->enum('Blood_Group', ['A+', 'A-','B+', 'B-','AB+', 'AB-','O+', 'O-','None'])
             ->default('None') // Optional: Set a default value if needed
             ->nullable(false);
-            $table->date('Last_Donation_date');
-            $table->Boolean('Availabilty');
-            $table->string('Password');
+            $table->date('Last_Donation');
+            $table->string('Availabilty');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
